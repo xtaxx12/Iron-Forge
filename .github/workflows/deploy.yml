@@ -40,6 +40,13 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Verify build output
+        run: |
+          echo "=== dist/index.html content ==="
+          cat ./dist/index.html
+          echo "=== dist folder contents ==="
+          ls -la ./dist/
+          ls -la ./dist/assets/
       - name: Add .nojekyll
         run: touch ./dist/.nojekyll
       - name: Setup Pages
